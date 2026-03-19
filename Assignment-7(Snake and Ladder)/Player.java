@@ -1,10 +1,11 @@
 public class Player {
+  int position;
   String name;
-  int postion;
-
-  public Player(String n, int p){
+  boolean skipTurn;
+  Player(String n){
     this.name = n;
-    this.postion = p;
+    this.position = 0;
+    this.skipTurn = false;
   }
 
 

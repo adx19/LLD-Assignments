@@ -1,17 +1,14 @@
-import java.util.LinkedList;
-import java.util.Queue;
-public class PlayerFactory {
-  static Queue<Player> createPlayer(int x){
-    Queue<Player> order = new LinkedList<Player>();
-    int i = 1;
-    while(order.size() != x){
-      String name = "P" + i;
-      Player p = new Player(name,  0);
+import java.util.*;
 
-      order.add(p);
-      i++;
+public class PlayerFactory {
+  static Queue<Player> createPlayers(int x) {
+
+    Queue<Player> players = new LinkedList<Player>();
+    for(int i = 1; i<=x; i++){
+      Player p = new Player("P"+ i);
+      players.add(p);
     }
 
-    return order;
-  } 
+    return players;
+ }
 }

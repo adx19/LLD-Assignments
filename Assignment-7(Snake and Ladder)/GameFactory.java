@@ -1,19 +1,21 @@
-import java.util.ArrayList;
 import java.util.Queue;
 
 public class GameFactory {
-  static SnakeAndLadderGame createGame(int n, int x, String diff) {
+  static Game createGame(int n, int x, String level) {
     Board b = BoardFactory.createBoard(n);
-    Queue<Player> player = PlayerFactory.createPlayer(x);
-    ArrayList<Rule> rule = new ArrayList<Rule>();
+    Queue<Player> players = PlayerFactory.createPlayers(x);
 
-    rule.add(new StartRule(diff));
-    rule.add(new SnakeRule());
-    rule.add(new LadderRule());
-    if(diff.toLowerCase().contentEquals("difficult")){
-      rule.add(new SixRule());
+    
+    Game game = new Game(players, b, null);
+    if (level.equals("easy")) {
+      Rule makeMove = new AllowContdSixes();
+      game = new Game(players, b, makeMove);
+    } else if(level.equals("hard")){
+      Rule makeMove = new SkipOn3Sixes();
+      game = new Game(players, b, makeMove);
     }
+    
 
-    return new SnakeAndLadderGame(player, b, rule);
+    return game;
   }
 }

@@ -1,9 +1,8 @@
-public class Ladder extends SnakeLadder {
-  String img;
+public class Ladder extends Items{
 
-  public Ladder(int s, int e){
-    this.start = s;
-    this.end = e;
+  Ladder(int s, int e){
+    super(s, e);
   }
 
+  
 }

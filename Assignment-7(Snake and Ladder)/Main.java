@@ -1,11 +1,6 @@
 public class Main {
-  public static void main(String[] args){
-    int n = 10;
-    int x = 4;
-    String diff = "easy";
-    SnakeAndLadderGame game = GameFactory.createGame(n, x, diff);
-    for(int i = 0; i<50; i++){
+    public static void main(String[] args){
+      Game game = GameFactory.createGame(10, 4, "hard");
       game.makeMove();
     }
-  }
 }
